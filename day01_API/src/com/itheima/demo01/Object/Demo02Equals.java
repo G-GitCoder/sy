@@ -1,5 +1,7 @@
 package com.itheima.demo01.Object;
 
+import java.util.Random;
+
 /*
 Person类默认继承了Object类，所以可以使用Object类的equals方法
 boolean equals(Object obj) 指示其他某个对象是否与此对象“相等”
@@ -22,14 +24,19 @@ public class Demo02Equals {
     public static void main(String[] args) {
 
         Person p1 = new Person("迪丽热巴",18);
-        Person p2 = new Person("古力娜扎",18);
+        Person p2 = new Person("迪丽热巴",18);
+        //Person p2 = new Person("古力娜扎",18);
 
-        p1 = p2;
+        //p1 = p2;
 
         System.out.println("p1：" + p1);//p1：com.itheima.demo01.Object.Person@1b6d3586
         System.out.println("p2：" + p2);//p2：com.itheima.demo01.Object.Person@1b6d3586
 
-        boolean b = p1.equals(p2);
+        Random r = new Random();
+
+//        boolean b = p1.equals(r);
+//        boolean b = p1.equals(null);
+        boolean b = p1.equals(p1);
         System.out.println(b);//true
     }
 }

@@ -26,6 +26,7 @@ public class Demo02Equals {
         Person p1 = new Person("迪丽热巴",18);
         Person p2 = new Person("迪丽热巴",18);
         Person p3 = new Person("古力娜扎",18);
+        Person p4 = new Person("马尔扎哈",18);
         //Person p2 = new Person("古力娜扎",18);
 
         //p1 = p2;

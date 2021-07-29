@@ -45,8 +45,13 @@ public class Person {
     解决：可以使用向下转型（强转），把Object类型转换为Person
     * */
 
-    @Override
+    /*@Override
     public boolean equals(Object obj) {
+
+        //增加一个判断，传递的参数obj是this本身，直接返回true，提高程序效率
+        if(obj == this) {
+            return true;
+        }
 
         //增加一个判断，传递的参数obj是null，直接返回false，提高程序的效率
         if(obj == null) {
@@ -65,17 +70,39 @@ public class Person {
 
         //不是Person类型直接返回false
         return false;
-    }
+    }*/
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+
+        //getClass() != o.getClass() 使用反射技术，判断o是否为Person类型，等效于 obj instanceof Person
         if (o == null || getClass() != o.getClass()) return false;
 
         Person person = (Person) o;
 
         return age == person.age &&
                 Objects.equals(name, person.name);
+    }
+
+    /*@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        //getClass() != o.getClass() 使用反射技术，判断o是否为Person类型，等效于 obj instanceof Person
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        return name != null ? name.equals(person.name) : person.name == null;
+    }*/
+
+    /*@Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + age;
+        return result;
     }*/
 
     @Override
